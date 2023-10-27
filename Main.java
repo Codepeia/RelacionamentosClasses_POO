@@ -4,22 +4,9 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        //RELACIONAMENTO 1 PARA 1
-        Pessoa p1 = new Pessoa();
-        Endereco end = new Endereco();
-        
-        p1.setNome("Maria");
 
-        end.setCidade("BSB");
-        end.setRua("CSB");
-        p1.setEnd(end);
-        
-        System.out.println("Pessoa: "+p1.getNome()+
-                            "\nEndereco: "+p1.getEnd().getCidade()+
-                               "\nCep: "+p1.getEnd().getRua());
-       
+        //CRIAR LISTAS ATRAVES DE ARRAYLISTS E MANIPULAÇÃO DOS METODOS DISPONIBILIZADOS PELA CLASSE
         ArrayList<Double> notas = new ArrayList<>();
-        
         System.out.println(notas.isEmpty());
         
         notas.add(10.0);
@@ -35,6 +22,21 @@ public class Main {
         for(int i = 0; i < notas.size(); i++ ){
             System.out.println(notas.get(i));
         }
+        //RELACIONAMENTO 1 PARA 1
+        Pessoa p1 = new Pessoa();
+        Endereco end = new Endereco();
+        
+        p1.setNome("Maria");
+
+        end.setCidade("BSB");
+        end.setRua("CSB");
+        p1.setEnd(end);//ATRIBUÇÃO DO OBJETO ENDERECO AO OBJETO PESSOA
+        
+        System.out.println("Pessoa: "+p1.getNome()+
+                            "\nEndereco: "+p1.getEnd().getCidade()+
+                               "\nCep: "+p1.getEnd().getRua());
+       
+
        //RELACIONAMENTO UM PARA MUITOS
        Pessoa p2 = new Pessoa();
        ArrayList<Telefone> telefones = new ArrayList<>();
@@ -54,10 +56,7 @@ public class Main {
        telefones.add(2, t3);
        
        p2.setTelefones(telefones);
-       
-       p2.imprimirPessoa();
-       
-       
+       p2.imprimirPessoa();     
     }
     
 }
