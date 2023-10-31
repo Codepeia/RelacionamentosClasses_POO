@@ -1,62 +1,36 @@
 
-import java.util.ArrayList;
-
-
 public class Main {
     public static void main(String[] args) {
-
-        //CRIAR LISTAS ATRAVES DE ARRAYLISTS E MANIPULAÇÃO DOS METODOS DISPONIBILIZADOS PELA CLASSE
-        ArrayList<Double> notas = new ArrayList<>();
-        System.out.println(notas.isEmpty());
         
-        notas.add(10.0);
-        notas.add(9.0);
-        notas.add(7.0);
-        notas.size();
-        
-        notas.add(0, 5.0);
-        notas.set(0, 100.0);
-        
-        notas.remove(0);
-     
-        for(int i = 0; i < notas.size(); i++ ){
-            System.out.println(notas.get(i));
-        }
-        //RELACIONAMENTO 1 PARA 1
-        Pessoa p1 = new Pessoa();
-        Endereco end = new Endereco();
+        Professor p1 = new Professor();
+        Professor p2 = new Professor();
+        Professor p3 = new Professor();
         
         p1.setNome("Maria");
-
-        end.setCidade("BSB");
-        end.setRua("CSB");
-        p1.setEnd(end);//ATRIBUÇÃO DO OBJETO ENDERECO AO OBJETO PESSOA
+        p2.setNome("Pedro");
+        p3.setNome("Lucas");
         
-        System.out.println("Pessoa: "+p1.getNome()+
-                            "\nEndereco: "+p1.getEnd().getCidade()+
-                               "\nCep: "+p1.getEnd().getRua());
+        Curso c1 = new Curso();
+        Curso c2 = new Curso();
+        
+        c1.setNome("BCC");
+        c2.setNome("ADS");
+        
+       // c1.addProfessor(p1);
+       // c1.addProfessor(p2);
+       // c1.addProfessor(p3);
+        
+       // c2.addProfessor(p2);
        
-
-       //RELACIONAMENTO UM PARA MUITOS
-       Pessoa p2 = new Pessoa();
-       ArrayList<Telefone> telefones = new ArrayList<>();
+       p1.addCurso(c1);
        
-       Telefone t1 = new Telefone();
-       Telefone t2 = new Telefone();
-       Telefone t3 = new Telefone();
+        
+        c1.imprimir();
+        
+        p1.imprimir();
+        p2.imprimir();
+        p3.imprimir();
        
-       t1.setNum("123");
-       t2.setNum("223");
-       t3.setNum("323");
-       
-       p2.setNome("Ana");
-       
-       telefones.add(0, t1);
-       telefones.add(1, t2);
-       telefones.add(2, t3);
-       
-       p2.setTelefones(telefones);
-       p2.imprimirPessoa();     
     }
     
 }
